@@ -3,7 +3,7 @@ title: PeerLink P2P File Sharing System
 description: A browser-based P2P file sharing demo using WebRTC data channels with a WebSocket signaling server and a 4-digit PIN pairing flow.
 date: 2023-01-08 08:01:35 +0300
 label: 
-image: '/images/project-peerlink/p2p%20demo.jpg'
+image: '/images/Project-PeerLink/p2p%20demo.jpg'
 image_full: true
 ---
 # P2P (PeerLink) File Sharing System

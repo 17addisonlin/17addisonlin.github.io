@@ -3,7 +3,7 @@ title: StockPulse Dashboard
 description: A modern stock dashboard with live price charts, watchlists, and alerts.
 date: 2023-01-10 08:01:35 +0300
 label: 
-image: '/images/project-stockpulse/cover.jpg'
+image: '/images/Project-StockPulse/cover.jpg'
 image_full: true
 ---
 # Stock Data Visualization Dashboard
@@ -12,7 +12,7 @@ image_full: true
 
 <p align="center">
   <br>
-  <img src="/images/project-stockpulse/banner22.png" alt="banner">
+  <img src="/images/Project-StockPulse/banner22.png" alt="banner">
   <br>
 </p>
 

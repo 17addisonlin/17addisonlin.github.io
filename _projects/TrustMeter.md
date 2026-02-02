@@ -3,10 +3,10 @@ title: TrustMeter AI Based Checker
 description: A lightweight FastAPI web app that classifies news articles as real or fake and fact-checks single statements with Wikipedia-backed evidence.
 date: 2023-01-10 08:01:35 +0300
 label: 
-image: '/images/project-trustmeter/cover1.jpg'
+image: '/images/Project-TrustMeter/cover1.jpg'
 images:
-  - '/images/project-trustmeter/cover1.jpg'
-  - '/images/project-trustmeter/cover2.jpg'
+  - '/images/Project-TrustMeter/cover1.jpg'
+  - '/images/Project-TrustMeter/cover2.jpg'
 image_full: true
 ---
 # AI Based (TrustMeter) News and Fact-Checking
@@ -14,7 +14,7 @@ image_full: true
 
 <p align="center">
   <br>
-  <img src="/images/project-trustmeter/banner3.png">
+  <img src="/images/Project-TrustMeter/banner3.png">
   <br>
 </p>
 

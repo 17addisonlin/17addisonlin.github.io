@@ -3,7 +3,7 @@ title: VisionScribe AI Image Caption
 description: A lightweight FastAPI web app that generates AI captions from uploaded images, plus a social-ready caption mode with tone, emojis, and hashtags.
 date: 2023-01-10 08:01:35 +0300
 label: 
-image: '/images/project-visionscribe/caption%20demo.jpg'
+image: '/images/Project-VisionScribe/caption%20demo.jpg'
 image_full: true
 ---
 # AI Image (VisionScribe) Captioning System
@@ -11,7 +11,7 @@ image_full: true
 
 <p align="center">
   <br>
-  <img src="/images/project-visionscribe/banner.png">
+  <img src="/images/Project-VisionScribe/banner.png">
   <br>
 </p>
 
