@@ -1,0 +1,23 @@
+<!-- begin footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="footer__info">
+          {% include social-links.html %}
+          <div class="copyright">{{site.time | date: '%Y'}} &copy; <a href="/">{{site.data.settings.title}}</a>. Crafted & Designed by <a href="https://jekyllthemes.io/developers/artem-sheludko">Artem Sheludko</a>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->
+
+<button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" data-theme="light">
+  <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+    <i class="fa-solid fa-sun"></i>
+  </span>
+  <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+    <i class="fa-solid fa-moon"></i>
+  </span>
+</button>

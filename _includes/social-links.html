@@ -1,0 +1,19 @@
+{% if site.data.settings.social %}
+<div class="social">
+  <ul class="social__list list-reset">
+    {% for social in site.data.settings.social %}
+    <li class="social__item">
+      <a class="social__link" href="{{ social.link }}" target="_blank" rel="noopener" aria-label="{{ social.name }} link">
+        {% if social.icon contains "svg" %}
+          <!-- Render the inline SVG icon -->
+          {{ social.icon | html_safe }}
+        {% else %}
+          <!-- Render FontAwesome or other icon classes -->
+          <i class="{{ social.icon }}"></i>
+        {% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
