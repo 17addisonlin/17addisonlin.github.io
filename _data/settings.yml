@@ -43,8 +43,15 @@ menu_settings:
 author:
   author_name: Addison Lin
   author_role: CS Undergraduate at University of Oklahoma
-  author_bio: "👨🏻‍💻 I'm Addison Lin, a Computer Science student at the University of Oklahoma. I'm passionate about exploring the fields of Natural Language Processing (NLP), Machine Learning (ML), and Artificial Intelligence (AI). With a growing interest in building intelligent systems, I am excited to contribute to projects that leverage data to solve complex problems. In addition to my studies, I am always learning and experimenting with new technologies to enhance my skills and make a positive impact on the world."
+  author_bio: |
+    Hello friends, welcome to my personal corner of the internet. I enjoy building with code, playing on the tennis court, traveling the world, and discovering the best food wherever I go.
+
+    Zhou Xun (周迅) once said:
+    "Time is incredibly precious — don’t waste it on things that don’t matter. Live in the present, and occasionally look ahead. The second that just passed is already eternity."
+
+    Whenever I witness something beautiful happening, I wish time could stand still.
   author_avatar: '/images/front_head_shot.jpg'
+
   cta_button_text: Get In Touch
   cta_button_link: '/contact/'
 
