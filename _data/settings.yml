@@ -52,6 +52,16 @@ author:
     Whenever I witness something beautiful happening, I wish time could stand still.
   author_avatar: '/images/front_head_shot.jpg'
 
+  # Homepage intro — structured so it renders as a designed block, not a flat paragraph
+  author_intro: Hello friends, welcome to my personal corner of the internet. Whenever I witness something beautiful happening, I wish time could stand still.
+  author_interests:
+    - { icon: 'fa-solid fa-code', label: 'Building with code' }
+    - { icon: 'fa-solid fa-table-tennis-paddle-ball', label: 'On the tennis court' }
+    - { icon: 'fa-solid fa-plane', label: 'Traveling the world' }
+    - { icon: 'fa-solid fa-utensils', label: 'Chasing good food' }
+  author_quote: Time is incredibly precious — don’t waste it on things that don’t matter. Live in the present, and occasionally look ahead. The second that just passed is already eternity.
+  author_quote_source: Zhou Xun (周迅)
+
   cta_button_text: Get In Touch
   cta_button_link: '/contact/'
 

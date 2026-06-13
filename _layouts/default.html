@@ -21,25 +21,38 @@
 
   <div class="global-content">
 
-    {% if page.url == '/' %}
-      {% include section-author.html %}
-    {% endif %}
+    <div class="layout">
 
-    {% include header.html %}
+      <!-- begin sidebar -->
+      <aside class="layout__sidebar">
+        {% include header.html %}
+      </aside>
+      <!-- end sidebar -->
 
-    {% if page.url != '/' and site.data.settings.breadcrumbs.enable == true %}
-      {% include breadcrumbs.html %}
-    {% endif %}
+      <!-- begin main column -->
+      <div class="layout__main">
 
-    <!-- begin content -->
-    <main class="content{% if site.data.settings.breadcrumbs.enable == true %} with-breadcrumbs{% endif %}" aria-label="Content">
-      {{ content }}
-    </main>
-    <!-- end content -->
+        {% if page.url != '/' and site.data.settings.breadcrumbs.enable == true %}
+          {% include breadcrumbs.html %}
+        {% endif %}
 
-    {% include section-subscribe.html %}
+        <!-- begin content -->
+        <main class="content{% if page.url != '/' and site.data.settings.breadcrumbs.enable == true %} with-breadcrumbs{% endif %}" aria-label="Content">
+          {% if page.url == '/' %}
+            {% include section-author.html %}
+          {% endif %}
+          {{ content }}
+        </main>
+        <!-- end content -->
 
-    {% include footer.html %}
+        {% include section-subscribe.html %}
+
+        {% include footer.html %}
+
+      </div>
+      <!-- end main column -->
+
+    </div>
 
   </div>
 

@@ -1,29 +1,16 @@
 /* Header */
 .header {
-  padding-top: 32px;
+  padding-top: 0;
 }
 
-/* Nav */
+/* Nav — vertical sidebar list on desktop */
 .main-nav {
   position: relative;
-  -webkit-mask-image: linear-gradient(to right, var(--text-color) 97%, transparent 100%);
-  mask-image: linear-gradient(to right, var(--text-color) 97%, transparent 100%);
 
   .nav__list {
     display: flex;
-    align-items: baseline;
-    overflow-x: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    &:active {
-      cursor: -webkit-grabbing;
-      cursor: grabbing
-    }
+    flex-direction: column;
+    align-items: stretch;
 
     .nav__item {
       margin: 0;
@@ -35,17 +22,60 @@
 
     .nav__link {
       display: block;
-      padding: 8px;
-      margin-right: 12px;
-      border-bottom: 2px solid var(--border-color);
+      padding: 10px 12px;
+      margin: 0 0 4px;
+      border-radius: $global-radius;
+      border-left: 2px solid transparent;
+      color: var(--text-alt-color);
 
       &:hover {
-        border-bottom-color: var(--primary-color);
+        color: var(--heading-font-color);
+        background: var(--background-alt-color);
       }
 
       &.active-link {
         font-weight: 600;
-        border-color: var(--primary-color);
+        color: var(--heading-font-color);
+        border-left-color: var(--primary-color);
+        background: var(--background-alt-color);
+      }
+    }
+  }
+
+  /* On tablet/mobile, collapse back to a horizontal scrolling bar */
+  @media (max-width: $tablet) {
+    -webkit-mask-image: linear-gradient(to right, var(--text-color) 97%, transparent 100%);
+    mask-image: linear-gradient(to right, var(--text-color) 97%, transparent 100%);
+
+    .nav__list {
+      flex-direction: row;
+      align-items: baseline;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav__link {
+        margin: 0 8px 0 0;
+        padding: 8px;
+        border-radius: 0;
+        border-left: 0;
+        border-bottom: 2px solid var(--border-color);
+        background: none;
+
+        &:hover {
+          background: none;
+          border-bottom-color: var(--primary-color);
+        }
+
+        &.active-link {
+          border-left: 0;
+          border-bottom-color: var(--primary-color);
+          background: none;
+        }
       }
     }
   }

@@ -1,0 +1,118 @@
+/* Two-column layout: left sidebar nav + right content */
+
+$sidebar-width: 232px;
+$layout-gap: 56px;
+$layout-max-width: 1200px; // sidebar + gap + content
+$layout-pad: 32px;
+
+/* Hero cover shares the same width envelope as the layout so the whole
+   page reads as one aligned block instead of a full-bleed image sitting
+   above a narrow centered column. */
+.global-cover {
+  max-width: $layout-max-width;
+  margin: 32px auto 0;
+  padding: 0 $layout-pad;
+  background: none;
+
+  img {
+    height: 300px;
+    border-radius: 16px;
+
+    @media (max-width: $mobile) {
+      height: 180px;
+      border-radius: 12px;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    margin-top: 20px;
+    padding: 0 $base-spacing-unit;
+  }
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+  gap: $layout-gap;
+  max-width: $layout-max-width;
+  margin: 0 auto;
+  padding: 40px $layout-pad 0;
+
+  @media (max-width: $tablet) {
+    display: block;
+    padding: 28px $base-spacing-unit 0;
+  }
+}
+
+/* Sidebar */
+.layout__sidebar {
+  flex: 0 0 $sidebar-width;
+  width: $sidebar-width;
+  position: sticky;
+  top: 32px;
+
+  @media (max-width: $tablet) {
+    position: static;
+    top: auto;
+    width: auto;
+    margin-bottom: 28px;
+  }
+}
+
+/* Main content column */
+.layout__main {
+  flex: 1 1 auto;
+  min-width: 0;
+
+  // Content inside the main column should fill it, not stay capped + centered
+  // by the theme's default 792px .container / 12-col grid offsets.
+  .container {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  // Section's first/last children carry their own spacing; kill the grid's
+  // outer column padding so cards align flush to the content edges.
+  > .content > .section .col-12 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* The first piece of content sits flush with the top of the sidebar */
+.layout__main .content {
+  margin-top: 0;
+
+  &.with-breadcrumbs {
+    margin-top: 0;
+  }
+}
+
+/* Homepage: the author intro leads the main column. The cover no longer
+   needs the negative-margin overlap (it's a contained banner now), and the
+   first section should hug the intro rather than carry the theme's 80px gap. */
+.layout__main {
+  .author__box.with-global-cover {
+    margin-top: 0;
+  }
+
+  .author {
+    margin-bottom: 8px;
+
+    @media (max-width: $mobile) {
+      margin-bottom: 0;
+    }
+  }
+
+  // First section after the author intro: trim the leading margin so the
+  // page starts tight and clean instead of with a tall empty band.
+  .author + .section {
+    margin-top: 40px;
+  }
+}

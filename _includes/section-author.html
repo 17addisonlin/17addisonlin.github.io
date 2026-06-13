@@ -6,13 +6,13 @@
 
         <div class="author__box{% if site.data.settings.global_cover.enable == true and site.data.settings.global_cover.homepage_image and site.data.settings.author.author_avatar %} with-global-cover{% endif %}">
           <div class="author__info">
-            <div class="author__meta">
-              {% if site.data.settings.author.author_avatar %}
-              <a href="{{ '/about' | relative_url }}" class="author__avatar">
-                <img src="{{ site.data.settings.author.author_avatar | relative_url }}" alt="{{ site.data.settings.author.author_name }}">
-              </a>
-              {% endif %}
+            {% if site.data.settings.author.author_avatar %}
+            <a href="{{ '/about' | relative_url }}" class="author__avatar">
+              <img src="{{ site.data.settings.author.author_avatar | relative_url }}" alt="{{ site.data.settings.author.author_name }}">
+            </a>
+            {% endif %}
 
+            <div class="author__meta">
               {% if site.data.settings.author.author_name %}
               <h1 class="author__name"><a href="{{ '/about' | relative_url }}">{{ site.data.settings.author.author_name }}</a></h1>
               {% endif %}
@@ -21,6 +21,7 @@
               <span class="author__role">{{ site.data.settings.author.author_role }}</span>
               {% endif %}
             </div>
+
             <div class="author__actions">
               {% if site.data.settings.author.cta_button_text %}
               <div class="translate">
@@ -34,8 +35,29 @@
               {% endif %}
             </div>
           </div>
-          {% if site.data.settings.author.author_bio %}
+          {% if site.data.settings.author.author_intro %}
+          <p class="author__intro">{{ site.data.settings.author.author_intro }}</p>
+          {% elsif site.data.settings.author.author_bio %}
           <p class="author__bio">{{ site.data.settings.author.author_bio }}</p>
+          {% endif %}
+
+          {% if site.data.settings.author.author_interests %}
+          <ul class="author__interests list-reset">
+            {% for interest in site.data.settings.author.author_interests %}
+            <li class="author__interest">
+              <i class="{{ interest.icon }}"></i><span>{{ interest.label }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+
+          {% if site.data.settings.author.author_quote %}
+          <blockquote class="author__quote">
+            <p>{{ site.data.settings.author.author_quote }}</p>
+            {% if site.data.settings.author.author_quote_source %}
+            <cite>— {{ site.data.settings.author.author_quote_source }}</cite>
+            {% endif %}
+          </blockquote>
           {% endif %}
         </div>
 
