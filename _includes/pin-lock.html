@@ -1,0 +1,22 @@
+<!-- begin pin lock -->
+<div class="pin-lock" data-pin-lock role="dialog" aria-modal="true" aria-labelledby="pin-lock-title">
+  <div class="pin-lock__card">
+    <div class="pin-lock__icon" aria-hidden="true">
+      <i class="fa-solid fa-lock"></i>
+    </div>
+    <h2 class="pin-lock__title" id="pin-lock-title">Protected page</h2>
+    <p class="pin-lock__text">Enter the 4-digit PIN to continue.</p>
+
+    <form class="pin-lock__form" data-pin-form novalidate>
+      <div class="pin-lock__inputs">
+        <input class="pin-lock__digit" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="off" aria-label="PIN digit 1">
+        <input class="pin-lock__digit" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="off" aria-label="PIN digit 2">
+        <input class="pin-lock__digit" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="off" aria-label="PIN digit 3">
+        <input class="pin-lock__digit" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="off" aria-label="PIN digit 4">
+      </div>
+      <p class="pin-lock__error" data-pin-error aria-live="polite"></p>
+      <button class="pin-lock__submit" type="submit">Unlock</button>
+    </form>
+  </div>
+</div>
+<!-- end pin lock -->

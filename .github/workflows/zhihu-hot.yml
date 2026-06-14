@@ -1,0 +1,78 @@
+name: Refresh Zhihu hot list
+
+on:
+  # Hourly. Change the cron to adjust frequency:
+  #   "0 * * * *"   = every hour (current)
+  #   "0 */6 * * *" = every 6 hours
+  #   "0 13 * * *"  = once a day at 13:00 UTC
+  schedule:
+    - cron: "0 * * * *"
+  # Allow manual runs from the Actions tab
+  workflow_dispatch:
+
+# Needed so this workflow can both commit the data and deploy Pages itself.
+# (A push made with the default token does NOT trigger the deploy workflow,
+# so we deploy here directly.)
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  refresh-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch Zhihu hot list
+        env:
+          TOPHUB_API_KEY: ${{ secrets.TOPHUB_API_KEY }}
+        run: node scripts/fetch-zhihu-hot.js
+
+      - name: Commit updated data (if changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain _data/zhihu_hot.json)" ]; then
+            git add _data/zhihu_hot.json
+            git commit -m "chore: refresh Zhihu hot list"
+            git push
+          else
+            echo "No changes to commit."
+          fi
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+          cache-version: 0
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

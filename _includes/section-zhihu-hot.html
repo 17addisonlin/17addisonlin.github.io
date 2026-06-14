@@ -1,0 +1,51 @@
+{% if site.data.settings.zhihu_hot_settings.enable == true %}
+{% assign hot = site.data.zhihu_hot %}
+{% assign limit = include.limit | default: site.data.settings.zhihu_hot_settings.homepage_limit | default: 10 %}
+<!-- begin zhihu hot -->
+<section class="section zhihu-hot">
+  <div class="container">
+
+    <div class="section__info">
+      <div class="section__head">
+        <h2 class="section__title"><i class="fa-solid fa-fire"></i> {{ site.data.settings.zhihu_hot_settings.title }}</h2>
+        {% unless include.full %}
+        <a class="section__link" href="{{ '/zhihu/' | relative_url }}">View all <i class="fa-solid fa-arrow-right-long"></i></a>
+        {% endunless %}
+      </div>
+      {% if site.data.settings.zhihu_hot_settings.description %}
+      <p class="section__description">{{ site.data.settings.zhihu_hot_settings.description }}</p>
+      {% endif %}
+    </div>
+
+    {% if hot.items and hot.items.size > 0 %}
+    <ol class="zhihu-list list-reset">
+      {% for item in hot.items limit: limit %}
+      <li class="zhihu-item">
+        <a class="zhihu-item__link" href="{{ item.url }}" target="_blank" rel="noopener">
+          <span class="zhihu-item__rank zhihu-item__rank--{% if item.rank <= 3 %}top{% else %}plain{% endif %}">{{ item.rank }}</span>
+          <span class="zhihu-item__body">
+            <span class="zhihu-item__title">{{ item.title }}</span>
+            {% if item.extra %}<span class="zhihu-item__extra">{{ item.extra }}</span>{% endif %}
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square zhihu-item__icon" aria-hidden="true"></i>
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+
+    {% if hot.updated %}
+    <p class="zhihu-list__updated">
+      <i class="fa-regular fa-clock"></i>
+      Updated <time datetime="{{ hot.updated }}" data-zhihu-updated="{{ hot.updated }}">{{ hot.updated }}</time>
+      &middot; via <a href="https://tophub.today/n/mproPpoq6O" target="_blank" rel="noopener">TopHub</a>
+    </p>
+    {% endif %}
+
+    {% else %}
+    <p class="zhihu-list__empty">The hot list will appear here once it has been fetched.</p>
+    {% endif %}
+
+  </div>
+</section>
+<!-- end zhihu hot -->
+{% endif %}

@@ -1,0 +1,128 @@
+/* PIN Lock — soft front-end gate for protected pages */
+
+/* Hide the real content until unlocked. Default (no-JS / locked) state keeps
+   the content hidden so the page isn't readable without the PIN. */
+.layout__main[data-pin-locked] .content.is-pin-locked {
+  display: none;
+}
+
+.pin-lock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  padding: 40px 0 64px;
+}
+
+.pin-lock__card {
+  width: 100%;
+  max-width: 360px;
+  padding: 40px 32px;
+  text-align: center;
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+
+  @media (max-width: $mobile) {
+    padding: 32px 20px;
+  }
+}
+
+.pin-lock__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  font-size: 22px;
+  color: var(--primary-color);
+  background: var(--background-alt-color);
+  border-radius: 50%;
+}
+
+.pin-lock__title {
+  margin-bottom: 8px;
+  font-size: 22px;
+}
+
+.pin-lock__text {
+  margin-bottom: 28px;
+  font-size: 15px;
+  color: var(--text-alt-color);
+}
+
+.pin-lock__inputs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.pin-lock__digit {
+  width: 56px;
+  height: 64px;
+  padding: 0;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--heading-font-color);
+  background: var(--background-alt-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  outline: 0;
+  transition: $global-transition;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(56, 152, 212, 0.18);
+  }
+
+  @media (max-width: $mobile) {
+    width: 48px;
+    height: 56px;
+    font-size: 24px;
+  }
+}
+
+.pin-lock__error {
+  min-height: 20px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #e5484d;
+}
+
+.pin-lock__submit {
+  display: inline-block;
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  background: var(--primary-color);
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: $global-transition;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+/* Shake animation on wrong PIN */
+.pin-lock__form--shake {
+  animation: pin-shake 0.4s ease;
+}
+
+@keyframes pin-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}

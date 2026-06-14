@@ -1,0 +1,114 @@
+---
+layout: default
+title: 🔐 Login
+permalink: /login/
+image:
+page_cover:
+---
+
+<!-- begin blog composer -->
+<div class="page container"
+     data-blog-login
+     data-username-hash="{{ site.data.settings.blog_login.username_hash }}"
+     data-password-hash="{{ site.data.settings.blog_login.password_hash }}">
+
+  <div class="page-head">
+    <h1 class="page-title">{{ page.title }}</h1>
+  </div>
+
+  <!-- Login form (shown when logged out) -->
+  <div class="composer-login" data-login-view>
+    <div class="composer-login__card">
+      <div class="composer-login__icon" aria-hidden="true">
+        <i class="fa-solid fa-user-lock"></i>
+      </div>
+      <h2 class="composer-login__title">Sign in to write</h2>
+      <p class="composer-login__text">Log in to open the blog post composer.</p>
+
+      <form class="composer-login__form" data-login-form novalidate>
+        <label class="composer-field">
+          <span class="composer-field__label">Username</span>
+          <input class="composer-field__input" type="text" autocomplete="username" data-login-username required>
+        </label>
+        <label class="composer-field">
+          <span class="composer-field__label">Password</span>
+          <input class="composer-field__input" type="password" autocomplete="current-password" data-login-password required>
+        </label>
+        <p class="composer-login__error" data-login-error aria-live="polite"></p>
+        <button class="composer-login__submit" type="submit">Log in</button>
+      </form>
+
+      <p class="composer-login__note">
+        <i class="fa-solid fa-circle-info"></i>
+        This is a local composer. Publishing exports a Markdown file you add to
+        <code>_posts/</code> and push — it does not post to the live site on its own.
+      </p>
+    </div>
+  </div>
+
+  <!-- Composer (shown when logged in) -->
+  <div class="composer" data-composer-view hidden>
+
+    <div class="composer__bar">
+      <p class="composer__welcome">Signed in. Fill in the fields and export your post.</p>
+      <button class="composer__logout" type="button" data-logout>Log out</button>
+    </div>
+
+    <form class="composer__form" data-composer-form novalidate>
+      <div class="composer__grid">
+        <label class="composer-field composer-field--full">
+          <span class="composer-field__label">Title <span class="composer-field__req">*</span></span>
+          <input class="composer-field__input" type="text" data-field-title placeholder="The power of prototyping" required>
+        </label>
+
+        <label class="composer-field composer-field--full">
+          <span class="composer-field__label">Description</span>
+          <textarea class="composer-field__input composer-field__textarea composer-field__textarea--short" data-field-description placeholder="A short summary shown in the blog list and meta tags."></textarea>
+        </label>
+
+        <label class="composer-field">
+          <span class="composer-field__label">Date</span>
+          <input class="composer-field__input" type="date" data-field-date>
+        </label>
+
+        <label class="composer-field">
+          <span class="composer-field__label">Tags <span class="composer-field__hint">(comma-separated)</span></span>
+          <input class="composer-field__input" type="text" data-field-tags placeholder="design, workflow">
+        </label>
+
+        <label class="composer-field composer-field--full">
+          <span class="composer-field__label">Cover image path <span class="composer-field__hint">(optional)</span></span>
+          <input class="composer-field__input" type="text" data-field-image placeholder="/images/my-post.jpg">
+        </label>
+
+        <label class="composer-field composer-field--full">
+          <span class="composer-field__label">Body <span class="composer-field__req">*</span> <span class="composer-field__hint">(Markdown)</span></span>
+          <textarea class="composer-field__input composer-field__textarea" data-field-body placeholder="Write your post in Markdown..." required></textarea>
+        </label>
+      </div>
+
+      <p class="composer__error" data-composer-error aria-live="polite"></p>
+
+      <div class="composer__actions">
+        <button class="composer__btn composer__btn--ghost" type="button" data-action="preview">Preview front matter</button>
+        <button class="composer__btn composer__btn--ghost" type="button" data-action="copy">Copy Markdown</button>
+        <button class="composer__btn composer__btn--primary" type="submit">Download .md</button>
+      </div>
+
+      <p class="composer__filename" data-filename hidden></p>
+      <pre class="composer__preview" data-preview hidden></pre>
+    </form>
+
+    <div class="composer__help">
+      <h3>How to publish</h3>
+      <ol>
+        <li>Click <strong>Download .md</strong> (or <strong>Copy Markdown</strong>).</li>
+        <li>Save the file into the <code>_posts/</code> folder of your repo, keeping its <code>YYYY-MM-DD-title.md</code> name.</li>
+        <li>Commit &amp; push — GitHub Pages rebuilds and the post appears under <a href="{{ '/blog/' | relative_url }}">Blog</a>.</li>
+      </ol>
+    </div>
+
+  </div>
+
+</div>
+<!-- end blog composer -->

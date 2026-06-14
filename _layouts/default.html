@@ -30,14 +30,23 @@
       <!-- end sidebar -->
 
       <!-- begin main column -->
-      <div class="layout__main">
+      {% assign pin_locked = false %}
+      {% if site.data.settings.pin_lock.enable == true and site.data.settings.pin_lock.hash and page.pin_lock == true %}
+        {% assign pin_locked = true %}
+      {% endif %}
+
+      <div class="layout__main"{% if pin_locked %} data-pin-locked data-pin-hash="{{ site.data.settings.pin_lock.hash }}"{% endif %}>
 
         {% if page.url != '/' and site.data.settings.breadcrumbs.enable == true %}
           {% include breadcrumbs.html %}
         {% endif %}
 
+        {% if pin_locked %}
+          {% include pin-lock.html %}
+        {% endif %}
+
         <!-- begin content -->
-        <main class="content{% if page.url != '/' and site.data.settings.breadcrumbs.enable == true %} with-breadcrumbs{% endif %}" aria-label="Content">
+        <main class="content{% if page.url != '/' and site.data.settings.breadcrumbs.enable == true %} with-breadcrumbs{% endif %}{% if pin_locked %} is-pin-locked{% endif %}" aria-label="Content">
           {% if page.url == '/' %}
             {% include section-author.html %}
           {% endif %}
@@ -45,7 +54,9 @@
         </main>
         <!-- end content -->
 
-        {% include section-subscribe.html %}
+        {% if pin_locked == false %}
+          {% include section-subscribe.html %}
+        {% endif %}
 
         {% include footer.html %}
 

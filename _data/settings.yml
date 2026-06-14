@@ -34,8 +34,35 @@ menu_settings:
       url: '/gallery/'
     - title: '✍️ Blog'
       url: '/blog/'
+    - title: '🔥 知乎热榜'
+      url: '/zhihu/'
     - title: '📔 Elements'
       url: '/elements/'
+    - title: '🔐 Login'
+      url: '/login/'
+
+
+#-------------------------------
+# Blog Composer Login (soft client-side gate)
+# NOTE: Static site — this is NOT real authentication. Only SHA-256 hashes of
+# the credentials are stored, never plaintext. It gates a local post composer
+# that exports a .md file for you to commit; it cannot publish on its own.
+# To change credentials:  printf 'value' | shasum -a 256
+blog_login:
+  enable: true
+  username_hash: 'e53b40f6c4a7449503a892d51275ae5a06356f84d354be8610e864add3e7ff70' # username: addison
+  password_hash: 'dc2ee521c7b4ea99d986e81943f544268bc4a7496a235aaac475b1be93b95b9f' # password: 8565
+
+
+#-------------------------------
+# PIN Lock (front-end gate for protected pages)
+# NOTE: This is a soft gate for a static site — it deters casual visitors but
+# is NOT real security (the page HTML still ships to the browser). Only the
+# SHA-256 hash of the PIN is stored here, never the raw digits.
+# To change the PIN, run:  printf 'YOURPIN' | shasum -a 256
+pin_lock:
+  enable: true
+  hash: 'dc2ee521c7b4ea99d986e81943f544268bc4a7496a235aaac475b1be93b95b9f' # PIN: 8565
 
 
 #-------------------------------
@@ -109,7 +136,7 @@ blog_settings:
 #-------------------------------
 # Videos Settings
 videos_settings:
-  enable: false
+  enable: true
   videos_title: Videos
   videos_description:
 
@@ -120,6 +147,17 @@ gallery_settings:
   enable: true
   gallery_title: Gallery
   gallery_description:
+
+
+#-------------------------------
+# Zhihu Hot List (powered by TopHub Data API)
+# Data is fetched server-side by .github/workflows/zhihu-hot.yml and written to
+# _data/zhihu_hot.json — the API key is never exposed to the browser.
+zhihu_hot_settings:
+  enable: true
+  title: 知乎热榜
+  description: Today's trending questions on Zhihu, China's largest Q&A community.
+  homepage_limit: 10 # how many to show in the homepage section
 
 
 #-------------------------------
