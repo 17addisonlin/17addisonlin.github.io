@@ -315,20 +315,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   /* ==========================
-  // Zhihu Hot — localize "Updated" timestamp
-  ========================== */
-
-  var zhihuUpdated = document.querySelectorAll('[data-zhihu-updated]');
-  for (var z = 0; z < zhihuUpdated.length; z++) {
-    var iso = zhihuUpdated[z].getAttribute('data-zhihu-updated');
-    var parsed = iso ? new Date(iso) : null;
-    if (parsed && !isNaN(parsed.getTime())) {
-      zhihuUpdated[z].textContent = parsed.toLocaleString();
-    }
-  }
-
-
-  /* ==========================
   // Translate Toggle
   ========================== */
 

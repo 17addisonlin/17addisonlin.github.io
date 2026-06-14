@@ -34,8 +34,6 @@ menu_settings:
       url: '/gallery/'
     - title: '✍️ Blog'
       url: '/blog/'
-    - title: '🔥 知乎热榜'
-      url: '/zhihu/'
     - title: '📔 Elements'
       url: '/elements/'
     - title: '🔐 Login'
@@ -147,17 +145,6 @@ gallery_settings:
   enable: true
   gallery_title: Gallery
   gallery_description:
-
-
-#-------------------------------
-# Zhihu Hot List (powered by TopHub Data API)
-# Data is fetched server-side by .github/workflows/zhihu-hot.yml and written to
-# _data/zhihu_hot.json — the API key is never exposed to the browser.
-zhihu_hot_settings:
-  enable: true
-  title: 知乎热榜
-  description: Today's trending questions on Zhihu, China's largest Q&A community.
-  homepage_limit: 10 # how many to show in the homepage section
 
 
 #-------------------------------
