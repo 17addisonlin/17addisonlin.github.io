@@ -34,8 +34,6 @@ menu_settings:
       url: '/gallery/'
     - title: '✍️ Blog'
       url: '/blog/'
-    - title: '📔 Elements'
-      url: '/elements/'
     - title: '🔐 Login'
       url: '/login/'
 
@@ -145,6 +143,20 @@ gallery_settings:
   enable: true
   gallery_title: Gallery
   gallery_description:
+
+
+#-------------------------------
+# Quick Links (handy resources, shown on the /quick-links/ page)
+# Add more by copying an item. `icon` is any Font Awesome class (optional).
+quick_links:
+  - title: PDF ToolKit
+    url: 'https://bentopdf.com'
+    description: Free in-browser PDF tools — merge, split, compress, convert.
+    icon: 'fa-solid fa-file-pdf'
+  - title: OpenStax
+    url: 'https://openstax.org'
+    description: Open-licensed, free college and high school textbooks.
+    icon: 'fa-solid fa-book-open'
 
 
 #-------------------------------
