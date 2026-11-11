@@ -7,7 +7,7 @@ The repository configuration is `.pages.yml` at the root. It provides a visual b
 1. Open <https://app.pagescms.org> and sign in with your GitHub account, `17addisonlin`.
 2. Follow the prompt to install the Pages CMS GitHub App. Choose **Only select repositories**, then select **17addisonlin.github.io**.
 3. Return to Pages CMS and open **17addisonlin/17addisonlin.github.io**.
-4. Select the **website-refresh** branch for the initial trial. Pages CMS reads `.pages.yml` from the selected branch. This branch has the current redesign and CMS support, and does not trigger the production deployment.
+4. Select the **main** branch for normal editing and publishing. Pages CMS reads `.pages.yml` from the selected branch; main contains the website version used by GitHub Pages.
 5. You should see **Blog posts**, **Site title and résumé**, **Images**, and **PDFs and attachments**.
 
 The user must complete GitHub sign-in and approve the app installation. No GitHub token or app secret belongs in `.pages.yml` or the website source.
@@ -21,7 +21,7 @@ The user must complete GitHub sign-in and approve the app installation. No GitHu
 5. Optionally choose a **Cover image**, add your own **Video embed URL**, or add **Attachments** with a link label and uploaded file.
 6. Save and reopen the entry to check the text and images. Test a caption and image layout before migrating complex posts from other editors; the rich-text preview is not a full rendered-site preview.
 
-On `website-refresh`, changes stay on the review branch. Once the redesign is reviewed and merged into `main`, choose **main** in Pages CMS for normal publishing. Turn **Published** on and save to include a post on the website; the GitHub Actions deployment runs when main changes. Saving with **Published** off keeps it off the website, but the saved file and uploaded media are still visible in the public repository.
+On `website-refresh`, changes stay on the review branch. Choose **main** in Pages CMS to publish changes to the live website. Turn **Published** on and save to include a post on the website; the GitHub Actions deployment runs when main changes. Saving with **Published** off keeps it off the website, but the saved file and uploaded media are still visible in the public repository.
 
 Keep a post’s filename stable after it is published. Its generated creation filename uses the current date and title; the **Post date** field determines the date displayed on the website.
 

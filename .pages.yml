@@ -1,5 +1,5 @@
 # Pages CMS reads this file from whichever GitHub branch is selected in its app.
-# Start on website-refresh for review; main is the live publishing branch.
+# Select main in Pages CMS for normal editing and publishing.
 settings:
   content:
     merge: true

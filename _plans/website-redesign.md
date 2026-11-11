@@ -1,6 +1,6 @@
 # Website redesign plan
 
-Status: implemented locally for review. Local preview: http://127.0.0.1:4001/. The redesign has not been published.
+Status: implementation complete. The main branch publishes through GitHub Actions. Local preview: http://127.0.0.1:4001/.
 
 ## Direction
 

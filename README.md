@@ -27,7 +27,7 @@ The composer at `/login/` previews and exports Markdown for `_posts/`; it does n
 
 Open <https://app.pagescms.org>, sign in with GitHub, and install the Pages CMS GitHub App for this repository. The root `.pages.yml` configures Blog posts, image uploads, PDF/file attachments, and the résumé selector.
 
-Use the `website-refresh` branch for the initial trial. Once reviewed and merged, use `main` for normal publishing. New posts start with **Published** off; turn it on and save when the post is ready for the website. Saved files on this public repository are public even while excluded from the website.
+Use the `main` branch for normal editing and publishing. The `website-refresh` branch preserves the initial review version. New posts start with **Published** off; turn it on and save when the post is ready for the website. Saved files on this public repository are public even while excluded from the website.
 
 See `_plans/pages-cms-setup.md` for the setup and first-post walkthrough. The footer’s **Write** link opens Pages CMS; the existing Composer remains available.
 
