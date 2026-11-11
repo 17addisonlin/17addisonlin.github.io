@@ -12,5 +12,7 @@
       <a href="{{ '/about/' | relative_url }}">More about me <span aria-hidden="true">↗</span></a>
     </div>
   </div>
-  <img class="profile__portrait" src="{{ site.data.settings.author.author_avatar | relative_url }}" alt="Portrait of Addison Lin" width="180" height="210" fetchpriority="high">
+  <a class="profile__portrait-frame" href="{{ site.data.settings.author.author_avatar | relative_url }}" target="_blank" rel="noopener" aria-label="Open the full-resolution portrait of Addison Lin">
+    <img class="profile__portrait" src="{{ site.data.settings.author.author_avatar | relative_url }}" alt="Portrait of Addison Lin" width="220" height="260" fetchpriority="high">
+  </a>
 </section>
