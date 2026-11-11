@@ -1,47 +1,16 @@
-{% if site.data.settings.projects_settings.enable == true %}
-<!-- begin projects -->
-<section class="section projects">
-  <div class="container">
-    <div class="row">
-      <div class="col col-12">
-        <div class="container__inner">
-
-          <div class="section__info">
-            <div class="section__head">
-              <h2 class="section__title"><i class="fa-solid fa-rocket"></i> {{ site.data.settings.projects_settings.projects_title }}</h2>
-              <a class="section__link" href="{{ '/projects' | relative_url }}">View all <i class="fa-solid fa-arrow-right-long"></i></a>
-            </div>
-            {% if site.data.settings.projects_settings.projects_description %}
-              <p class="section__description">{{ site.data.settings.projects_settings.projects_description }}</p>
-            {% endif %}
-          </div>
-
-          <div class="row">
-            {% assign sorted = site.projects | sort: 'date' | reverse %}
-            {% for project in sorted limit:4 %}
-            <article class="project col col-6 col-t-12 animate">
-              <div class="project__content">
-                <div class="project__info">
-                  <h3 class="project__title"><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
-                  {% if project.description %}
-                    <div class="project__description">{{ project.description }}</div>
-                  {% endif %}
-                </div>
-                {% if project.image %}
-                <a href="{{ project.url | relative_url }}" class="project__image">
-                  <img class="lazy" data-src="{{ project.image | relative_url }}" alt="{{ project.title }}">
-                </a>
-                {% endif %}
-              </div>
-            </article>
-            {% endfor %}
-          </div>
-
-        </div>
-      </div>
+{% if site.data.settings.projects_settings.enable %}
+<section class="home-section" aria-labelledby="projects-heading">
+  <div class="section-heading"><h2 id="projects-heading">Project</h2><a href="{{ '/projects/' | relative_url }}">All projects <span aria-hidden="true">→</span></a></div>
+  <section id="papers" class="project-subsection" aria-labelledby="papers-heading">
+    {% include section-paper.html heading_level=3 %}
+  </section>
+  <section class="project-subsection" aria-labelledby="home-projects-heading">
+    <h3 id="home-projects-heading">Projects</h3>
+    <div class="project-list">
+      {% assign projects = site.projects | where: 'featured', true | sort: 'featured_order' %}
+      {% for project in projects limit:2 %}{% include project-entry.html heading_level=4 %}{% endfor %}
     </div>
-  </div>
-
+  </section>
+  <p class="section-more"><a href="{{ '/projects/' | relative_url }}">For more projects <span aria-hidden="true">→</span></a></p>
 </section>
-<!-- end projects -->
 {% endif %}

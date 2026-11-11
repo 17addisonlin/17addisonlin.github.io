@@ -1,23 +1,15 @@
-<!-- begin footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col col-12">
-        <div class="footer__info">
-          {% include social-links.html %}
-          <div class="copyright">{{site.time | date: '%Y'}} &copy; <a href="/">{{site.data.settings.title}}</a>. Open-source content maintain by GitHub Page</a>.</div>
-        </div>
-      </div>
-    </div>
+<footer class="site-footer">
+  <div>
+    <a class="notranslate" href="{{ '/' | relative_url }}">{{ site.data.settings.title | escape }}</a>
+    <p>Building things. Collecting moments.</p>
+    <small>© {{ site.time | date: '%Y' }} · Built with Jekyll &amp; GitHub Pages.</small>
   </div>
+  <nav class="footer-links" aria-label="More links">
+    <a href="{{ '/contact/' | relative_url }}">Contact</a>
+    {% for social in site.data.settings.social %}<a href="{{ social.link | escape }}" rel="noopener" target="_blank">{{ social.name | escape }}</a>{% endfor %}
+    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    <a href="{{ '/videos/' | relative_url }}">Videos</a>
+    <a href="https://app.pagescms.org" target="_blank" rel="noopener">Write</a>
+    {% if site.data.settings.blog_login.enable %}<a href="{{ '/login/' | relative_url }}">Composer</a>{% endif %}
+  </nav>
 </footer>
-<!-- end footer -->
-
-<button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" data-theme="light">
-  <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
-    <i class="fa-solid fa-sun"></i>
-  </span>
-  <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
-    <i class="fa-solid fa-moon"></i>
-  </span>
-</button>

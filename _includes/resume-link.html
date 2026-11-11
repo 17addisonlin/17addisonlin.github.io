@@ -1,0 +1,4 @@
+{% assign resume_url = site.data.settings.resume_url %}
+{% if resume_url and resume_url != '' %}
+<a href="{% if resume_url contains '://' %}{{ resume_url | escape }}{% else %}{{ resume_url | relative_url | escape }}{% endif %}" target="_blank" rel="noopener">CV / Résumé <span aria-hidden="true">↗</span></a>
+{% endif %}

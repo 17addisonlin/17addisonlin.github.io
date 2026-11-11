@@ -1,12 +1,12 @@
 /* Color Scheme */
 
 @mixin scheme-light {
-  --primary-color: #3898d4;
+  --primary-color: #2366a8;
   --white: #fff;
   --light-gray: #f5f5f5;
   --lighten-gray: #e6e6e6;
-  --gray: #8b8e95;
-  --dark: #0f1419;
+  --gray: #646d77;
+  --dark: #242a31;
 
   --background-color: var(--white);
   --background-alt-color: var(--light-gray);
@@ -16,8 +16,8 @@
 
   --heading-font-color: var(--dark);
 
-  --link-color: var(--dark);
-  --link-color-hover: var(--dark);
+  --link-color: var(--primary-color);
+  --link-color-hover: #174f87;
 
   --button-color: var(--white);
   --button-background-hover: #ededed;
@@ -32,27 +32,27 @@
 }
 
 @mixin scheme-dark {
-  --primary-color: #f0a65c;
+  --primary-color: #8bbcf4;
   --white: #fff;
   --light-gray: #f0f0f0;
-  --gray: #9e9e9e;
-  --dark: #111016;
+  --gray: #aab4c0;
+  --dark: #17191c;
 
   --background-color: var(--dark);
   --background-alt-color: #1a1a1f;
 
-  --text-color: var(--gray);
+  --text-color: #d1d7df;
   --text-alt-color: var(--gray);
 
   --heading-font-color: var(--light-gray);
 
-  --link-color: var(--light-gray);
-  --link-color-hover: var(--light-gray);
+  --link-color: var(--primary-color);
+  --link-color-hover: #b1d3fa;
 
   --button-color: var(--white);
   --button-background-hover: #202025;
 
-  --border-color: #252629;
+  --border-color: #343b44;
   --border-color-alt: #080b12;
 
   --th-color: #18181d;

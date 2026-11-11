@@ -1,68 +1,16 @@
-<!-- begin author -->
-<section class="author">
-  <div class="container">
-    <div class="row">
-      <div class="col col-12">
-
-        <div class="author__box{% if site.data.settings.global_cover.enable == true and site.data.settings.global_cover.homepage_image and site.data.settings.author.author_avatar %} with-global-cover{% endif %}">
-          <div class="author__info">
-            {% if site.data.settings.author.author_avatar %}
-            <a href="{{ '/about' | relative_url }}" class="author__avatar">
-              <img src="{{ site.data.settings.author.author_avatar | relative_url }}" alt="{{ site.data.settings.author.author_name }}">
-            </a>
-            {% endif %}
-
-            <div class="author__meta">
-              {% if site.data.settings.author.author_name %}
-              <h1 class="author__name"><a href="{{ '/about' | relative_url }}">{{ site.data.settings.author.author_name }}</a></h1>
-              {% endif %}
-
-              {% if site.data.settings.author.author_role %}
-              <span class="author__role">{{ site.data.settings.author.author_role }}</span>
-              {% endif %}
-            </div>
-
-            <div class="author__actions">
-              {% if site.data.settings.author.cta_button_text %}
-              <div class="translate">
-                <button class="translate__btn" type="button" data-lang="en" aria-label="Switch to English">EN</button>
-                <span class="translate__sep">/</span>
-                <button class="translate__btn" type="button" data-lang="zh-CN" aria-label="Switch to Chinese">中文</button>
-              </div>
-              <a href="{{ site.data.settings.author.cta_button_link | relative_url }}" class="cta-button">
-                <i class="fa-regular fa-envelope"></i> {{ site.data.settings.author.cta_button_text }}
-              </a>
-              {% endif %}
-            </div>
-          </div>
-          {% if site.data.settings.author.author_intro %}
-          <p class="author__intro">{{ site.data.settings.author.author_intro }}</p>
-          {% elsif site.data.settings.author.author_bio %}
-          <p class="author__bio">{{ site.data.settings.author.author_bio }}</p>
-          {% endif %}
-
-          {% if site.data.settings.author.author_interests %}
-          <ul class="author__interests list-reset">
-            {% for interest in site.data.settings.author.author_interests %}
-            <li class="author__interest">
-              <i class="{{ interest.icon }}"></i><span>{{ interest.label }}</span>
-            </li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-
-          {% if site.data.settings.author.author_quote %}
-          <blockquote class="author__quote">
-            <p>{{ site.data.settings.author.author_quote }}</p>
-            {% if site.data.settings.author.author_quote_source %}
-            <cite>— {{ site.data.settings.author.author_quote_source }}</cite>
-            {% endif %}
-          </blockquote>
-          {% endif %}
-        </div>
-
-      </div>
+<section class="profile" aria-labelledby="profile-heading">
+  <div class="profile__copy">
+    <p class="eyebrow">A personal corner of the internet</p>
+    <h1 id="profile-heading">Hello, friends.</h1>
+    <p class="profile__role">{{ site.data.settings.author.author_role | escape }}</p>
+    <p>I enjoy building with code, playing tennis, traveling, and discovering good food along the way.</p>
+    <p>Here you’ll find projects I’m working on, things I’ve written, and photographs from life outside the screen.</p>
+    <div class="text-links">
+      <a href="mailto:{{ site.data.settings.contact.email | escape }}">Email</a>
+      <a href="https://github.com/17addisonlin">GitHub</a>
+      {% include resume-link.html %}
+      <a href="{{ '/about/' | relative_url }}">More about me <span aria-hidden="true">↗</span></a>
     </div>
   </div>
+  <img class="profile__portrait" src="{{ site.data.settings.author.author_avatar | relative_url }}" alt="Portrait of Addison Lin" width="180" height="210" fetchpriority="high">
 </section>
-<!-- end author -->

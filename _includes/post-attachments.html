@@ -1,0 +1,10 @@
+{% if page.attachments.size > 0 %}
+<section class="post-attachments" aria-labelledby="attachments-heading">
+  <h2 id="attachments-heading">Attachments</h2>
+  <ul>
+    {% for attachment in page.attachments %}
+    <li><a href="{{ attachment.file | relative_url | escape }}" target="_blank" rel="noopener">{{ attachment.label | default: attachment.file | escape }} <span aria-hidden="true">↗</span></a></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

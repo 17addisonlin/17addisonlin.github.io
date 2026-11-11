@@ -7,12 +7,13 @@ layout: default
 
   <div class="post-head">
     <h1 class="post-title">{{ page.title | escape }}</h1>
+    {% unless page.is_template %}
     <div class="post-meta">
       {% if page.tags.size >= 1 %}
       <div class="post-tags">
-        Publish in&nbsp;
+        Topics&nbsp;
         {% for tag in page.tags %}
-        <a href="{{ site.baseurl }}/tags#{{ tag }}" class="post__tag">{{ tag }}</a>
+        <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="post__tag">{{ tag }}</a>
         {% endfor %}
       </div>
       &nbsp;&bull;&nbsp;
@@ -30,6 +31,7 @@ layout: default
       </span>
       {% endif %}
     </div>
+    {% endunless %}
     {% if page.description %}
       <p class="post-description">{{ page.description }}</p>
     {% endif %}
@@ -56,9 +58,11 @@ layout: default
     {{ content }}
   </div>
 
-  {% include share-buttons.html %}
+  {% include post-attachments.html %}
 
-  {% include related-posts.html %}
+  <p class="back-link"><a href="{{ '/blog/' | relative_url }}">← Back to all writing</a></p>
+
+  {% unless page.is_template %}{% include related-posts.html %}{% endunless %}
 </article>
 <!-- end post -->
 

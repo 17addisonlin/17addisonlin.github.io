@@ -1,0 +1,10 @@
+<article class="project-entry">
+  <h{{ include.heading_level | default: 3 }}><a href="{{ project.url | relative_url }}">{{ project.short_title | default: project.title | escape }}</a></h{{ include.heading_level | default: 3 }}>
+  <p>{{ project.description | escape }}</p>
+  {% if project.technologies %}<p class="entry-meta">{{ project.technologies | join: ' · ' | escape }}</p>{% endif %}
+  <div class="text-links">
+    <a href="{{ project.url | relative_url }}">Details <span aria-hidden="true">↗</span></a>
+    {% if project.repo_url %}<a href="{{ project.repo_url | escape }}">Code</a>{% endif %}
+    {% if project.demo_url %}<a href="{{ project.demo_url | escape }}">Demo</a>{% endif %}
+  </div>
+</article>

@@ -1,41 +1,18 @@
 ---
 layout: default
-title: 🚀 Portfolio
-description: Description of the project will be added in the future. Upcoming soon.
-page_cover: '/images/projects-banner.jpg'
+title: Projects & Papers
+description: Research collaborations and software I’m building.
 ---
-
-<!-- begin page -->
 <div class="page container">
-
-  <div class="page-head">
-    <h1 class="page-title">{{ page.title }}</h1>
-    {% if page.description %}
-    <p class="page-section-description">{{ page.description }}</p>
-    {% endif %}
-  </div>
-
-  <div class="page__projects">
-    <div class="row">
-      {% for project in site.projects reversed %}
-      <article class="project col col-6 col-t-12 animate">
-        <div class="project__content">
-          <div class="project__info">
-            <h3 class="project__title"><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
-            {% if project.description %}
-            <div class="project__description">{{ project.description }}</div>
-            {% endif %}
-          </div>
-          {% if project.image %}
-          <a href="{{ project.url | relative_url }}" class="project__image">
-            <img class="lazy" data-src="{{ project.image | relative_url }}" alt="{{ project.title }}">
-          </a>
-          {% endif %}
-        </div>
-      </article>
-      {% endfor %}
+  <header class="page-head"><h1 class="page-title">Projects &amp; papers</h1><p class="page-description">{{ page.description }}</p></header>
+  <section id="papers" class="work-section" aria-labelledby="papers-heading">
+    {% include section-paper.html heading_level=2 %}
+  </section>
+  <section id="projects" class="work-section" aria-labelledby="all-projects-heading">
+    <h2 id="all-projects-heading">Projects</h2>
+    <div class="project-list">
+      {% assign projects = site.projects | sort: 'featured_order' %}
+      {% for project in projects %}{% include project-entry.html %}{% endfor %}
     </div>
-  </div>
-
+  </section>
 </div>
-<!-- end page -->

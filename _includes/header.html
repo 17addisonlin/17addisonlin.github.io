@@ -1,13 +1,22 @@
-<!-- begin header -->
-<header class="header">
-  <nav class="main-nav">
-    <ul class="nav__list list-reset dragscroll">
-      {% for item in site.data.settings.menu_settings.menu_items %}
-      <li class="nav__item">
-        <a href="{{ item.url | relative_url }}" class="nav__link{% if page.url == item.url %} active-link{% endif %}">{{ item.title }}</a>
-      </li>
-      {% endfor %}
-    </ul>
+<header class="masthead">
+  <a class="site-name notranslate" href="{{ '/' | relative_url }}">{{ site.data.settings.title | escape }}</a>
+  <nav class="site-nav" aria-label="Main navigation">
+    {% for item in site.data.settings.menu_settings.menu_items %}
+      {% assign active = false %}
+      {% if page.url == item.url %}{% assign active = true %}{% endif %}
+      {% if item.url != '/' and page.url contains item.url %}{% assign active = true %}{% endif %}
+      <a href="{{ item.url | relative_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title | escape }}</a>
+    {% endfor %}
   </nav>
+  <div class="site-tools">
+    <div class="translate" role="group" aria-label="Language">
+      <button class="translate__btn" type="button" data-lang="en" aria-label="Switch to English">EN</button>
+      <span aria-hidden="true">/</span>
+      <button class="translate__btn" type="button" data-lang="zh-CN" aria-label="Switch to Chinese">中文</button>
+    </div>
+    <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" data-theme="light">
+      <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
+      <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
+    </button>
+  </div>
 </header>
-<!-- end header -->

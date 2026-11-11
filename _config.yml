@@ -5,8 +5,8 @@
 
 #. cmds: bundle exec jekyll serve
 
-title: "My Personal Website Addison"
-description: "Welcome to my personal website where I share my thoughts, projects, and experiences."
+title: "Addison Lin"
+description: "Projects, writing, and photographs by Addison Lin."
 baseurl: ""  # the subpath of your site, e.g. /blog
 url: "https://17addisonlin.github.io"  # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -78,3 +78,8 @@ defaults:
 sass:
   sass_dir: _sass
   style: compressed
+
+# Keep the Las Vegas originals in source control without publishing the album assets.
+exclude:
+  - images/LasVegas
+  - images/previews/las-vegas.jpg

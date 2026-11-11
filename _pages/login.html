@@ -1,9 +1,10 @@
 ---
 layout: default
-title: 🔐 Login
+title: Post composer
+description: Write a post and export it as Markdown.
 permalink: /login/
 image:
-page_cover: '/images/login-banner.jpg'
+page_cover:
 ---
 
 <!-- begin blog composer -->
@@ -40,16 +41,16 @@ page_cover: '/images/login-banner.jpg'
 
       <p class="composer-login__note">
         <i class="fa-solid fa-circle-info"></i>
-        This is a local composer. Publishing exports a Markdown file you add to
+        This composer exports a Markdown file you add to
         <code>_posts/</code> and push — it does not post to the live site on its own.
       </p>
     </div>
 
     <div class="login-badges">
-      <a class="element-badge" href="{{ '/elements/' | relative_url }}" aria-label="Elements">
+      <a class="element-badge" href="{{ '/blog/template/' | relative_url }}" aria-label="Blog template">
         <span class="element-badge__inner">
           <i class="fa-solid fa-cube element-badge__icon" aria-hidden="true"></i>
-          <span class="element-badge__label">Element</span>
+          <span class="element-badge__label">Blog template</span>
         </span>
       </a>
       <a class="element-badge" href="{{ '/quick-links/' | relative_url }}" aria-label="Quick Links">
@@ -73,7 +74,7 @@ page_cover: '/images/login-banner.jpg'
       <div class="composer__grid">
         <label class="composer-field composer-field--full">
           <span class="composer-field__label">Title <span class="composer-field__req">*</span></span>
-          <input class="composer-field__input" type="text" data-field-title placeholder="The power of prototyping" required>
+          <input class="composer-field__input" type="text" data-field-title placeholder="A new project, a small discovery…" required>
         </label>
 
         <label class="composer-field composer-field--full">
@@ -116,10 +117,11 @@ page_cover: '/images/login-banner.jpg'
 
     <div class="composer__help">
       <h3>How to publish</h3>
+      <p><a href="{{ '/blog/template/' | relative_url }}">Use the blog template</a> for examples of headings, photographs, captions, code, and video posts.</p>
       <ol>
         <li>Click <strong>Download .md</strong> (or <strong>Copy Markdown</strong>).</li>
         <li>Save the file into the <code>_posts/</code> folder of your repo, keeping its <code>YYYY-MM-DD-title.md</code> name.</li>
-        <li>Commit &amp; push — GitHub Pages rebuilds and the post appears under <a href="{{ '/blog/' | relative_url }}">Blog</a>.</li>
+        <li>Commit &amp; push — GitHub Pages rebuilds and the post appears under <a href="{{ '/blog/' | relative_url }}">Writing</a>.</li>
       </ol>
     </div>
 

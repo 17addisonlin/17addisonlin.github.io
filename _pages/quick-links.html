@@ -1,42 +1,14 @@
 ---
 layout: default
-title: 🔗 Quick Links
+title: Links
 permalink: /quick-links/
-image:
-page_cover:
+description: A few places to find me and explore what I’m working on.
 ---
-
-<!-- begin quick links -->
-<div class="page container">
-
-  <div class="page-head">
-    <h1 class="page-title">{{ page.title }}</h1>
-    <p class="page-section-description">A handy collection of resources I keep coming back to.</p>
-  </div>
-
-  {% if site.data.settings.quick_links and site.data.settings.quick_links.size > 0 %}
-  <ul class="quick-links list-reset">
+<section class="page container">
+  <header class="page-head"><h1 class="page-title">Links</h1><p class="page-description">{{ page.description }}</p></header>
+  <ul class="resource-list list-reset">
     {% for link in site.data.settings.quick_links %}
-    <li class="quick-link">
-      <a class="quick-link__card" href="{{ link.url }}" target="_blank" rel="noopener">
-        <span class="quick-link__icon">
-          <i class="{{ link.icon | default: 'fa-solid fa-link' }}" aria-hidden="true"></i>
-        </span>
-        <span class="quick-link__body">
-          <span class="quick-link__title">{{ link.title }}</span>
-          {% if link.description %}
-          <span class="quick-link__desc">{{ link.description }}</span>
-          {% endif %}
-          <span class="quick-link__url">{{ link.url | remove: 'https://' | remove: 'http://' | remove_first: '/' }}</span>
-        </span>
-        <i class="fa-solid fa-arrow-up-right-from-square quick-link__ext" aria-hidden="true"></i>
-      </a>
-    </li>
+    <li><a href="{{ link.url | escape }}" target="_blank" rel="noopener">{{ link.title | escape }} <span aria-hidden="true">↗</span></a>{% if link.description %}<p>{{ link.description | escape }}</p>{% endif %}</li>
     {% endfor %}
   </ul>
-  {% else %}
-  <p class="quick-links__empty">No links yet — add some in <code>_data/settings.yml</code>.</p>
-  {% endif %}
-
-</div>
-<!-- end quick links -->
+</section>

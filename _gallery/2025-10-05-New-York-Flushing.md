@@ -1,7 +1,11 @@
 ---
+listed: true
+gallery_order: 2
+display_title: New York
+thumbnail: /images/previews/new-york.jpg
 title: "New York Flushing"
 date: 2025-10-05 15:01:35 +0300
-description: Hawaii was an amazing destination with stunning beaches, warm weather, and friendly locals. I enjoyed trying the local cuisine on my trip to Hawaii, including poke bowls, shaved ice, and fresh seafood. I spent my days in Hawaii exploring the island, visiting museums, and taking in the beautiful scenery.
+description: A collection of photographs from New York Flushing.
 gallery_columns:
 cover: "/images/NY2025/ny-main.jpeg"
 caption: "Gallery / Addison's DJI OSMO Pocket 3"

@@ -1,0 +1,130 @@
+# Pages CMS reads this file from whichever GitHub branch is selected in its app.
+# Start on website-refresh for review; main is the live publishing branch.
+settings:
+  content:
+    merge: true
+
+media:
+  - name: images
+    label: Images
+    input: images
+    output: /images
+    path: images/blog
+    extensions: [jpg, jpeg, png, webp, gif]
+    rename: safe
+  - name: files
+    label: PDFs and attachments
+    input: files
+    output: /files
+    extensions: [pdf, docx, txt, zip]
+    rename: safe
+
+content:
+  - name: posts
+    label: Blog posts
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    subfolders: false
+    filename:
+      template: "{year}-{month}-{day}-{primary}.md"
+      field: create
+    view:
+      primary: title
+      fields: [title, date, published]
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: layout
+        type: string
+        default: post
+        hidden: true
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Short summary
+        type: text
+        description: Shown in post previews and when sharing a link.
+      - name: date
+        label: Post date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: published
+        label: Published
+        type: boolean
+        default: false
+        description: Turn on when ready to show this post on the website. Saved drafts remain files in the public GitHub repository.
+      - name: featured
+        label: Show on homepage
+        type: boolean
+        default: true
+        description: The homepage shows up to four of the latest published posts.
+      - name: tags
+        label: Topics
+        type: string
+        list: true
+      - name: image
+        label: Cover image
+        type: image
+        options:
+          media: images
+          path: images/blog
+          rename: safe
+      - name: video_embed
+        label: Video embed URL
+        type: string
+        description: Optional. Use the embed URL for your own video, such as https://www.youtube.com/embed/VIDEO_ID.
+      - name: body
+        label: Post
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: images
+          path: images/blog
+          rename: safe
+          switcher: true
+      - name: attachments
+        label: Attachments
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Link text
+            type: string
+            required: true
+          - name: file
+            label: File
+            type: file
+            required: true
+            options:
+              media: files
+              rename: safe
+
+  - name: profile
+    label: Site title and résumé
+    type: file
+    path: _data/settings.yml
+    format: yaml
+    fields:
+      - name: title
+        label: Site title
+        type: string
+        required: true
+      - name: description
+        label: Site description
+        type: text
+      - name: resume_url
+        label: CV or résumé PDF
+        type: file
+        description: Upload or select your PDF. The website will display its CV / Résumé link.
+        options:
+          media: files
+          extensions: [pdf]
+          rename: safe

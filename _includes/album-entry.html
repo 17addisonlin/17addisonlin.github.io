@@ -1,0 +1,11 @@
+<article class="album-entry{% if album.coming_soon %} album-entry--upcoming{% endif %}">
+  <a href="{{ album.url | relative_url }}">
+    {% if album.coming_soon %}
+      <div class="album-placeholder"><span>Photos coming soon</span></div>
+    {% else %}
+      <img src="{{ album.thumbnail | default: album.cover | relative_url }}" alt="{{ album.display_title | default: album.title | escape }} photo album" loading="lazy" width="600" height="450">
+    {% endif %}
+    <h3>{{ album.display_title | default: album.title | escape }}</h3>
+  </a>
+  <p class="entry-meta">{% if album.year %}{{ album.year }}{% else %}{{ album.date | date: '%Y' }}{% endif %} · {% if album.coming_soon %}Coming soon{% else %}{{ album.images.size }} photographs{% endif %}</p>
+</article>
